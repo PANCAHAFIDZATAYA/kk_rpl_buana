@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
+    header("location:../masuk.php?pesan=belum_login");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +16,7 @@
     <script type="text/javascript" src="../assets/js/bootstrap.js"></script>
 </head>
 <body style="background: #a52dd9ff;">
-    <?php
-        session_start();
-        if ($_SESSION['status']!="login"){
-            header("location:../index.php?pesan=belum_login");
-        }
-    ?>
+    
     <nav class="navbar navbar-inverse" style="border-radius: 0px;">
         <div class="container-fluid">
             <div class="navbar-header">
